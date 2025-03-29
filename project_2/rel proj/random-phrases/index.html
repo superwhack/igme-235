@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Grass</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <style> 
+        body {
+            text-align: center;
+            color: green;
+            background-image: url("images/background.png");
+            font-family: VT323;
+        }
+
+        #pokemon-box-container {
+            margin: 0 auto 0;
+            position: relative;
+            border: 5px green solid;
+            width: 60%;
+            padding: 0px 0px 0px;
+        }
+
+        #bg-image {
+            width: 100%;
+            height: 100%;
+            padding: 0px 0px 0px;
+            margin: 0px 0px 0px;
+        }
+
+        #pokemon-box {
+            position: absolute;
+            top: 60%;
+            left: 5%;
+
+
+            display: block;
+            background-color: lightgreen;
+            border: 3px green solid;
+
+            width: 90%;
+            min-height: 10%;
+
+            margin-bottom: 0px;
+
+            font-family: VT323;
+        }
+
+        #pokemon-text {
+            color: darkgreen;
+            font-size: 2.5vw;
+            margin: 1cqw 2cqw 1cqw;
+        }
+
+        #pokemon-box:hover{
+            background-color: rgb(175, 237, 175);
+        }
+        
+        #pokemon-box:active{
+            background-color: green ;
+            border-color: darkgreen;
+        }
+
+        #heading {
+            display: block;
+            background-color: lightgreen;
+            border: 3px green solid;
+            width: 50%;
+            margin: auto;
+        }
+
+        footer {
+            display: block;
+            background-color: lightgreen;
+            border: 3px green solid;
+            width: 20%;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            #pokemon-text {
+            font-size: 4vw;
+        }
+
+            #pokemon-box-container {
+                width: 80%;
+            }
+            
+            #heading {
+                width: 70%;
+                font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <h1>What might you find in the wild grass?</h1>
+        <h2>(click anywhere in the box below)</h2>
+    </div>
+    
+    <div id="pokemon-box-container">
+        <img id="bg-image" src="images/tall-grass.png" alt="A pokemon trainer in tall grass.">
+        <button id="pokemon-box"><p id="pokemon-text">Step out on your Pokemon journey!</p></div></div>
+    
+    <footer>- created by bee morse -</footer>
+
+    <script>
+    let pokemonList = [];
+    let legendaryList = [];
+    let pokemonCSV;
+
+    let loaded = false;
+
+    let pokemonBox = document.querySelector("p");
+    let container = document.getElementById("pokemon-box-container");
+
+    function AorAn(string) {
+        switch (string.toLowerCase()[0]) {
+            case "a":
+            case "e": 
+            case "i":
+            case "o":
+            case "u":
+                return "an ";
+            default: 
+                return "a ";
+        }
+    }
+    function MakePokemon(name, number, type1, type2, base_total, legendary) {
+        let pokemon = {
+            name: name,
+            number: number,
+            type1: type1,
+            type2: type2,
+            base_total: base_total,
+            legendary: legendary,
+            ToString: function() {
+                let first = "";
+                let second = "";
+
+                if (legendary == "1") {
+                    first = "Wow! You caught the legendary " + name + ", #" + number + "!";
+                }
+                else {
+                    first = "Nice! You caught " + name + ", #" + number + "!";
+                }
+
+                if (type2.toLowerCase() == "none") {
+                    second = " It is " + AorAn(type1) + type1 + " type Pokemon, with a base stat total of " + base_total + ".";
+                }
+                else {
+                    second = " It is " + AorAn(type1) + type1 + " and " + type2 + " type Pokemon, with a base stat total of " + base_total + ".";
+                }
+
+                return first + second;
+            }
+        };
+
+        return pokemon;
+    }
+
+    async function LoadData() {
+        fetch("data/FirstGenPokemon.csv")
+        .then(async response => {if (await response.ok) {return response.text()}})
+        .then(async text => {ProcessData(await text)});
+    }
+
+    function ProcessData(csvData) {
+        let splitData = csvData.split("\r\n");
+        splitData.pop();
+
+        for (let i = 1; i < splitData.length; i++) {
+            let current = splitData[i].split(",");
+            let pokemon = MakePokemon(current[1], current[0], current[3], current[4], current[12], current[34])
+
+            if (pokemon.legendary == "1") {
+                legendaryList.push(pokemon);
+            }
+            else {
+                pokemonList.push(pokemon);
+            }
+        }
+
+        loaded = true;
+    }
+
+    function PickAPokemon() {
+        if (Math.random() < 0.05) {
+            return legendaryList[Math.floor(Math.random() * legendaryList.length)]
+        }
+        else {
+            return pokemonList[Math.floor(Math.random() * pokemonList.length)]
+        }
+    }
+
+    function displayQuote() {
+        if (loaded) {
+            pokemonBox.innerHTML = PickAPokemon().ToString();
+        }
+
+    }
+
+    LoadData();
+    
+    container.onclick = displayQuote;
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaSqueebs</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- STYLE SHEETS -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="window">
+        <div id="mode_menu_window">
+            <button id="collection_mode_button" class="mode_button">collection</button>
+            <button id="materials_mode_button" class="mode_button">materials</button>
+            <button id="adventure_mode_button" class="mode_button">adventure</button>
+            <button id="tutorial_button" class="tutorial_button">?</button>
+        </div>
+
+        <div id="main_game_window">
+
+            <div id="game_header"><p id = "game_header_text">javasqueebs!</p></div>
+
+            <div id="tutorial_window" class = "game_window">
+                <h2 class = "tutorial_header">willkommen!</h2>
+                <p class = "tutorial_text">
+                    welcome to javasqueebs, a short idle game about collecting creatures called squeebs. this page will break down the mechanics, and you can always return to it by pressing the [?] button in the bottom left
+                </p>
+
+                <h2 class = "tutorial_header">collection</h2>
+                <p class = "tutorial_text">
+                    this is where you can view your squeebs! beneath each squeeb's picture is their name and modifier, which changes how fast they complete activities. try to collect all 24! you start with the one and only prime squeeb. bask in its might and glory!
+                </p>
+
+                <h2 class = "tutorial_header">materials</h2>
+                <p class = "tutorial_text">
+                    this is where you can see your materials that you've collected. squeebs gather materials when adventuring, and you can spend materials to find new places to adventure.
+                </p>
+
+                <h2 class = "tutorial_header">adventure</h2>
+                <p class = "tutorial_text">
+                    venture out into a vast squorld, discovering different squeebs and gathering materials. click on the drop-down to select a squeeb, and click start to begin adventuring!
+                </p>
+
+                <h2 class = "tutorial_header">zones</h2>
+                <p class = "tutorial_text">
+                    to find what you're missing, refer here: <br>
+                    squorest || uncommon: goofy, squeeze, squat, hug | rare: sprite, reflex | cryptozoological: velvet |<br>
+                    squains || uncommon: gooey, staple, jaw, pop | rare: friends, length | cryptozoological: beebus |<br>
+                    squorest || uncommon: fluff, scruff, boots, hook | rare: see, energily | cryptozoological: loopsy, choir |<br>
+                    happy hunting!
+                </p>
+
+                <h2 class = "tutorial_header">grading & documentation</h2>
+                <p class = "tutorial_text">
+                    because this game has time based mechanics, you can click a button in the bottom right of this screen to make all adventures go extra fast. you may have to restart the adventure to make this work. due to the nature of random chance, you still might not get everything, but everything is possible to get. <a href="documentation.html" target="_blank">documentation.</a> <a href = "mock/about.html" target="_blank">mock.</a>
+                </p>
+
+                <div id = "cheats_container">
+                <button id="cheat_button" class="cheat_buttons">toggle cheatskidoodles</button>
+                <button id="supercheat_button" class="cheat_buttons">toggle super-cheatskidoodles</button>
+                <button id="item_cheat_button" class="cheat_buttons">get 999 of everything</button>
+            </div>
+            </div>
+            <div id="materials_window" class="game_window inventory"></div>
+
+            <div id="collection_window" class="game_window inventory"></div>
+
+            <div id="adventure_window" class="game_window">
+                <div id="adventure_1" class="adventure">
+                    <p class="adventure_title">squorest</p>
+
+                    <div class = "a_select_and_start">
+
+                    <select id="a_squeeb_selector_1" class="a_squeeb_selector">
+                    </select>
+                    
+                    
+                    <img id="a_squeeb_image_1" class = "a_squeeb_image" alt = "" src = "images/blank.png">
+
+                    <p id = "a_squeeb_title_1" class = "a_squeeb_title"></p>
+
+                    <button id = "a_toggle_button_1" class = "a_toggle_button">start</button>
+                    </div>
+                    <div id="a_progressbar_out_1" class="progressbar_out a_progressbar_out">
+                        <div id="a_progressbar_in_1" class="progressbar_in"></div>
+                    </div>
+
+                    <p id = "a_results_1" class = "a_results">results</p>
+                </div>
+
+                <button id="unlock_1" class="unlock_button">unlock next: 50 stiqs, 50 stoans, 30 bohns</button>
+
+                <div id="adventure_2" class="adventure">
+                    <p class="adventure_title">squains</p>
+
+                    <div class = "a_select_and_start">
+
+                    <select id="a_squeeb_selector_2" class="a_squeeb_selector">
+                    </select>
+                    
+                    
+                    <img id="a_squeeb_image_2" class = "a_squeeb_image" alt = "" src = "images/blank.png">
+
+                    <p id = "a_squeeb_title_2" class = "a_squeeb_title"></p>
+
+                    <button id = "a_toggle_button_2" class = "a_toggle_button">start</button>
+                    </div>
+                    <div id="a_progressbar_out_2" class="progressbar_out a_progressbar_out">
+                        <div id="a_progressbar_in_2" class="progressbar_in"></div>
+                    </div>
+
+                    <p id = "a_results_2" class = "a_results">results</p>
+                </div>
+
+                <button id="unlock_2" class="unlock_button">unlock next: 70 grub, 70 chow, 50 nosh</button>
+
+                <div id="adventure_3" class="adventure">
+                    <p class="adventure_title">squndra</p>
+
+                    <div class = "a_select_and_start">
+
+                    <select id="a_squeeb_selector_3" class="a_squeeb_selector">
+                    </select>
+                    
+                    
+                    <img id="a_squeeb_image_3" class = "a_squeeb_image" alt = "" src = "images/blank.png">
+
+                    <p id = "a_squeeb_title_3" class = "a_squeeb_title"></p>
+
+                    <button id = "a_toggle_button_3" class = "a_toggle_button">start</button>
+                    </div>
+                    <div id="a_progressbar_out_3" class="progressbar_out a_progressbar_out">
+                        <div id="a_progressbar_in_3" class="progressbar_in"></div>
+                    </div>
+
+                    <p id = "a_results_3" class = "a_results">results</p>
+                </div>
+                
+                <button id="unlock_3" class="unlock_button">unlock THE ROYAL SQUEEB: 200 of each!</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- HOWLER -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- SCRIPTS -->
+    <script src="utils.js"></script>
+    <script src="classes.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web-Apps-4</title>
+	<style>
+		body{border:1px solid gray;}
+	</style>
+</head>
+<body>
+<h1>My Favorites</h1>
+<h2>My Favorite Colors</h2>
+
+<ol id="colorsList">
+	
+</ol>
+
+<h2>My Favorite Foods</h2>
+
+<ol id="foodsList">
+	
+</ol>
+
+<h2>My Favorite Links</h2>
+
+<ol id="linksList">
+	
+</ol>
+
+<script>
+"use strict";
+let colors = ["red","green","blue","purple","pink"];
+let foods = ["pasta", "pizza", "italy"]; // add some foods
+
+// Optional - can you figure out how to pull both the key AND the value
+// from the `links` object literal?
+let links = {
+		"RIT": "http://www.rit.edu",
+		"RWAG" : "https://www.facebook.com/RWAGclub",
+		"New Media Club" : "http://newmediaclub.cias.rit.edu"
+	}
+
+let lists = document.querySelectorAll("ol");
+
+let colorList = lists[0];
+
+let foodList = lists[1];
+
+let linkList = lists[2];
+
+function createList(listElement, array = ["puppydogs", "butterflies", "lollipops"]) {
+    for (let i = 0; i < array.length; i++) {
+    listElement.appendChild(document.createElement("li")).innerHTML = array[i];
+}
+}
+
+createList(colorList, colors);
+createList(foodList, foods);
+
+</script>
+</body>
+</html>

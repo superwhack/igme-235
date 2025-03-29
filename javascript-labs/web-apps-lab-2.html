@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web-Apps-2</title>
+	<style>
+		body{border:1px solid gray;}
+		p b{transform: rotate(20deg)}
+	</style>
+</head>
+<body>
+<h1>My Page</h1>
+<h2>Info</h2>
+<h2>Pictures</h2>
+<h2>More Info</h2>
+<p>Blah <b>Blah</b> Blah</p>
+<p>Blah <b>Blah</b> Blah</p>
+<p id="lastParagraph">Blah <b>Blah</b> Blah</p>
+<footer>Copyright &copy; <b>20XX</b></footer>
+<script>
+	"use strict"; 
+
+    document.querySelector("h1").innerHTML = "My UFO Page";
+    let subHeaders = document.querySelectorAll("h2");
+
+    subHeaders[0].innerHTML = "My UFO Info";
+    subHeaders[1].innerHTML = "My UFO Pictures";
+    subHeaders[2].innerHTML = "";
+
+    let body = document.querySelector("body");
+
+    body.style.color = "#FF7700";
+
+    let paras = document.querySelectorAll("p");
+    let firstPara = paras[0];
+
+    firstPara.style.color = "green";
+    firstPara.style.fontWeight = "bold";
+    firstPara.style.fontSize = "2em";
+    firstPara.style.textTransform = "uppercase";
+    firstPara.style.textShadow = "3px 2px #A44";
+
+    paras[1].innerHTML = "";
+    paras[2].innerHTML = "<img src='https://media.newyorker.com/photos/64ca89f569af7f8649142d29/1:1/w_1010,h_1010,c_limit/Wiley-UFO-03.jpg' alt='A UFO'>";
+
+    let date = new Date;
+
+    document.querySelector("footer").innerHTML = "Copyright Bee Morse " + (date.getFullYear());
+	</script>
+</body>
+</html>
